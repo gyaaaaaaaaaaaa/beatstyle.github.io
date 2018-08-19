@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>基本コマ割り千本ノック</title>
+  <script>
+  function komawari () {
+    /*---------------------------------------------
+     * 1段目
+    ---------------------------------------------*/
+    var arr1 = [
+      //縦1段
+      [
+        //下辺うえ（せまい）
+        [
+          //横2
+          [
+          "00001_1段目_下辺うえ_みぎ.png",
+          "00002_1段目_下辺うえ_なか.png",
+          "00003_1段目_下辺うえ_ひだり.png",
+          ],
+        ],
+        //下辺なか
+        [
+          //横2
+          [
+          "00001_1段目_下辺なか_みぎ.png",
+          "00002_1段目_下辺なか_なか.png",
+          "00003_1段目_下辺なか_ひだり.png",
+          ],
+        ],
+        //下辺した（ひろい）
+        [
+          //横2
+          [
+          "00001_1段目_下辺した_みぎ.png",
+          "00002_1段目_下辺した_なか.png",
+          "00003_1段目_下辺した_ひだり.png",
+          ],
+        ],
+      ],
+    ];
+    var koma1 = document.getElementById("1");
+    var height_1 = Math.floor(Math.random() * arr1.length);
+    var height_gap_1 = Math.floor(Math.random() * arr1[height_1].length);
+    var koma_number_1 = Math.floor(Math.random() * arr1[height_1][height_gap_1].length);
+    var width_gap_1 = Math.floor(Math.random() * arr1[height_1][height_gap_1][koma_number_1].length);
+    koma1.src = arr1[height_1][height_gap_1][koma_number_1][width_gap_1];
+
+    /*---------------------------------------------
+     * 3段目
+    ---------------------------------------------*/
+    if (
+      //1段目が縦1段のとき
+      height_1 === 0
+    ) {
+    var arr3 = [
+      //縦1段
+      [
+        //上辺うえ（ひろい）
+        [
+          //横2
+          [
+          "00001_3段目_上辺うえ_みぎ.png",
+          "00002_3段目_上辺うえ_なか.png",
+          "00003_3段目_上辺うえ_ひだり.png",
+          ],
+        ],
+        //上辺なか
+        [
+          //横2
+          [
+          "00001_3段目_上辺なか_みぎ.png",
+          "00002_3段目_上辺なか_なか.png",
+          "00003_3段目_上辺なか_ひだり.png",
+          ],
+        ],
+          //上辺した（せまい）
+        [
+          //横2
+          [
+          "00001_3段目_上辺した_みぎ.png",
+          "00002_3段目_上辺した_なか.png",
+          "00003_3段目_上辺した_ひだり.png",
+          ],
+        ],
+      ],
+    ];
+    var koma3 = document.getElementById("3");
+    var height_3 = Math.floor(Math.random() * arr3.length);
+    var height_gap_3 = Math.floor(Math.random() * arr3[height_3].length);
+    var koma_number_3 = Math.floor(Math.random() * arr3[height_3][height_gap_3].length);
+    var width_gap_3 = Math.floor(Math.random() * arr3[height_3][height_gap_3][koma_number_3].length);
+    koma3.src = arr3[height_3][height_gap_3][koma_number_3][width_gap_3];
+    }
+
+    /*---------------------------------------------
+     * 2段目
+    ---------------------------------------------*/
+    if (
+      //1段目が縦1+3段目が縦1+1段目下辺うえ（せまい）+3段目上辺うえ（ひろい）のとき
+      height_1 === 0 &&
+      height_3 === 0 &&
+      height_gap_1 === 0 &&
+      height_gap_3 === 0
+    ) {
+    var arr2 = [
+      //上辺うえ下辺うえ
+      [
+      //横2
+      "00001_2段目_上辺うえ下辺うえ_みぎ.png",
+      "00002_2段目_上辺うえ下辺うえ_なか.png",
+      "00003_2段目_上辺うえ下辺うえ_ひだり.png",
+      ],
+    ];
+    var koma2 = document.getElementById("2");
+    var height_gap_2 = Math.floor(Math.random() * arr2.length);
+    var width_gap_2 = Math.floor(Math.random() * arr2[height_gap_2].length);
+    koma2.src = arr2[height_gap_2][width_gap_2];
+    }
+    else if (
+      //1段目が縦1+3段目が縦1+1段目下辺うえ（せまい）+3段目上辺なかのとき
+      height_1 === 0 &&
+      height_3 === 0 &&
+      height_gap_1 === 0 &&
+      height_gap_3 === 1
+    ) {
+    var arr2 = [
+      //上辺うえ下辺なか
+      [
+      //横2
+      "00001_2段目_上辺うえ下辺なか_みぎ.png",
+      "00002_2段目_上辺うえ下辺なか_なか.png",
+      "00003_2段目_上辺うえ下辺なか_ひだり.png",
+      ],
+    ];
+    var koma2 = document.getElementById("2");
+    var height_gap_2 = Math.floor(Math.random() * arr2.length);
+    var width_gap_2 = Math.floor(Math.random() * arr2[height_gap_2].length);
+    koma2.src = arr2[height_gap_2][width_gap_2];
+    }
+    else if (
+      //1段目が縦1+3段目が縦1+1段目下辺うえ（せまい）+3段目上辺した（せまい）のとき
+      height_1 === 0 &&
+      height_3 === 0 &&
+      height_gap_1 === 0 &&
+      height_gap_3 === 2
+    ) {
+    var arr2 = [
+      //上辺うえ下辺した（とてもひろい）
+      [
+      //横2
+      "00001_2段目_上辺うえ下辺した_みぎ.png",
+      "00002_2段目_上辺うえ下辺した_なか.png",
+      "00003_2段目_上辺うえ下辺した_ひだり.png",
+      ],
+    ];
+      var koma2 = document.getElementById("2");
+      var height_gap_2 = Math.floor(Math.random() * arr2.length);
+      var width_gap_2 = Math.floor(Math.random() * arr2[height_gap_2].length);
+      koma2.src = arr2[height_gap_2][width_gap_2];
+    }
+    else if (
+      //1段目が縦1+3段目が縦1+1段目下辺なか+3段目上辺うえ（ひろい）のとき
+      height_1 === 0 &&
+      height_3 === 0 &&
+      height_gap_1 === 1 &&
+      height_gap_3 === 0
+    ) {
+    var arr2 = [
+      //上辺なか下辺うえ
+      [
+      //横2
+      "00001_2段目_上辺なか下辺うえ_みぎ.png",
+      "00002_2段目_上辺なか下辺うえ_なか.png",
+      "00003_2段目_上辺なか下辺うえ_ひだり.png",
+      ],
+    ];
+      var koma2 = document.getElementById("2");
+      var height_gap_2 = Math.floor(Math.random() * arr2.length);
+      var width_gap_2 = Math.floor(Math.random() * arr2[height_gap_2].length);
+      koma2.src = arr2[height_gap_2][width_gap_2];
+    }
+    else if (
+      //1段目が縦1+3段目が縦1+1段目下辺なか+3段目上辺なかのとき
+      height_1 === 0 &&
+      height_3 === 0 &&
+      height_gap_1 === 1 &&
+      height_gap_3 === 1
+    ) {
+    var arr2 = [
+      //上辺なか下辺なか
+      [
+      //横2
+      "00001_2段目_上辺なか下辺なか_みぎ.png",
+      "00002_2段目_上辺なか下辺なか_なか.png",
+      "00003_2段目_上辺なか下辺なか_ひだり.png",
+      ],
+    ];
+      var koma2 = document.getElementById("2");
+      var height_gap_2 = Math.floor(Math.random() * arr2.length);
+      var width_gap_2 = Math.floor(Math.random() * arr2[height_gap_2].length);
+      koma2.src = arr2[height_gap_2][width_gap_2];
+    }
+    else if (
+      //1段目が縦1+3段目が縦1+1段目下辺なか+3段目上辺した（せまい）のとき
+      height_1 === 0 &&
+      height_3 === 0 &&
+      height_gap_1 === 1 &&
+      height_gap_3 === 2
+    ) {
+    var arr2 = [
+      //上辺なか下辺した
+      [
+      //横2
+      "00001_2段目_上辺なか下辺した_みぎ.png",
+      "00002_2段目_上辺なか下辺した_なか.png",
+      "00003_2段目_上辺なか下辺した_ひだり.png",
+      ],
+    ];
+      var koma2 = document.getElementById("2");
+      var height_gap_2 = Math.floor(Math.random() * arr2.length);
+      var width_gap_2 = Math.floor(Math.random() * arr2[height_gap_2].length);
+      koma2.src = arr2[height_gap_2][width_gap_2];
+    }
+    else if (
+      //1段目が縦1+3段目が縦1+1段目下辺した（ひろい）+3段目上辺うえ（ひろい）のとき
+      height_1 === 0 &&
+      height_3 === 0 &&
+      height_gap_1 === 2 &&
+      height_gap_3 === 0
+    ) {
+    var arr2 = [
+      //上辺した下辺うえ（とてもせまい）
+      [
+      //横2
+      "00001_2段目_上辺した下辺うえ_みぎ.png",
+      "00002_2段目_上辺した下辺うえ_なか.png",
+      "00003_2段目_上辺した下辺うえ_ひだり.png",
+      ],
+    ];
+    var koma2 = document.getElementById("2");
+    var height_gap_2 = Math.floor(Math.random() * arr2.length);
+    var width_gap_2 = Math.floor(Math.random() * arr2[height_gap_2].length);
+    koma2.src = arr2[height_gap_2][width_gap_2];
+    }
+    else if (
+      //1段目が縦1+3段目が縦1+1段目下辺した（ひろい）+3段目上辺なかのとき
+      height_1 === 0 &&
+      height_3 === 0 &&
+      height_gap_1 === 2 &&
+      height_gap_3 === 1
+    ) {
+    var arr2 = [
+      //上辺した下辺なか
+      [
+      //横2
+      "00001_2段目_上辺した下辺なか_みぎ.png",
+      "00002_2段目_上辺した下辺なか_なか.png",
+      "00003_2段目_上辺した下辺なか_ひだり.png",
+      ],
+    ];
+    var koma2 = document.getElementById("2");
+    var height_gap_2 = Math.floor(Math.random() * arr2.length);
+    var width_gap_2 = Math.floor(Math.random() * arr2[height_gap_2].length);
+    koma2.src = arr2[height_gap_2][width_gap_2];
+    }
+    else if (
+      //1段目が縦1+3段目が縦1+1段目下辺した（ひろい）+3段目上辺した（せまい）のとき
+      height_1 === 0 &&
+      height_3 === 0 &&
+      height_gap_1 === 2 &&
+      height_gap_3 === 2
+    ) {
+    var arr2 = [
+      //上辺した下辺した
+      [
+      //横2
+      "00001_2段目_上辺した下辺した_みぎ.png",
+      "00002_2段目_上辺した下辺した_なか.png",
+      "00003_2段目_上辺した下辺した_ひだり.png",
+      ],
+    ];
+    var koma2 = document.getElementById("2");
+    var height_gap_2 = Math.floor(Math.random() * arr2.length);
+    var width_gap_2 = Math.floor(Math.random() * arr2[height_gap_2].length);
+    koma2.src = arr2[height_gap_2][width_gap_2];
+    }
+  }
+  </script>
+</head>
+<body>
+  <div style="text-align: center;">
+    <p>基本コマ割り千本ノック</p>
+    <img src="わる.png" width="200" onclick="komawari()"><br />
+    <img id="1" src="00002_1段目_下辺なか_なか.png" width="80"><br />
+    <img id="2" src="00002_1段目_下辺なか_なか.png" width="80"><br />
+    <img id="3" src="00002_1段目_下辺なか_なか.png" width="80"><br />
+  </div>
+</body>
+</html>
